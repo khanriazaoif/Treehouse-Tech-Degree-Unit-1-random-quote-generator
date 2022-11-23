@@ -45,13 +45,15 @@ const quotes = [
     }
 ];
 
-console.log(`This log is on line #48 (${quotes})`);
-console.log(quotes);
+// console.log(`This log is on line #48 (${quotes})`);
+// console.log(quotes);
 /***
  * `getRandomQuote` function
 ***/
 function getRandomQuote(){
-
+    const randomNumber = Math.floor(Math.random() * quotes.length + 1);
+    console.log(randomNumber);
+    return randomNumber;
 }
 
 
