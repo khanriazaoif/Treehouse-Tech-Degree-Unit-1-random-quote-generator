@@ -45,8 +45,6 @@ const quotes = [
     }
 ];
 
-// console.log(`This log is on line #48 (${quotes})`);
-// console.log(quotes);
 /***
  * `getRandomQuote` function
 ***/
@@ -60,9 +58,26 @@ function getRandomQuote(){
 /***
  * `printQuote` function
 ***/
+function printQuote() {
+    const randomQuote = getRandomQuote();
+    const stringElements = `
+        <p className="quote"> A random quote </p>
+        <p className="source"> quote source </p>
+        `
+    if (quotes[getRandomQuote()].citation) {
+        console.log(`Hello inside the citation`);
+    } else {
+        console.log('no citation');
+    }
 
-console.log(getRandomQuote());
+    if (quotes[getRandomQuote()].year) {
+        console.log(`Hello inside the second citation`);
+    } else {
+        console.log('no citation 2');
+    }
+}
 
+printQuote();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
