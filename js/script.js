@@ -12,40 +12,32 @@ project 1 - A Random Quote Generator
 ***/
 const quotes = [
     {
-        quote: 'Programming isn\'t about what you know; it\'s about what you can figure out.',
-        source: 'Chris Pine',
-        citation: 'Learn to Program',
-        year: 1986
+        quote: 'I am not afraid of storms, for I am learning how to sail my ship.',
+        source: 'Louisa May Alcott',
+        citation: 'Little Women',
+        year: 1869
     },
     {
-        quote: 'The only way to learn a new programming language is by writing programs in it.',
-        source: 'Dennis Ritchie',
-        citation: 'C Programming Language',
-        year: 1988
-
+        quote: 'It\'s the possibility of having a dream come true that makes life interesting.',
+        source: 'Paulo Coelho',
+        citation: 'The Alchemist'
     },
     {
-        quote: `Sometimes it's better to leave something alone, to pause, and that's very true of programming.`,
-        source: 'Joyce Wheeler',
-        citation: 'Random Programming Book',
-        year: 1976
-
+        quote: `What's the point of having a voice if you're gonna be silent in those moments you shouldn't be?`,
+        source: 'Angie Thomas',
+        citation: 'The Hate U Give'
     },
     {
         quote: 'Truth can only be found in one place: the code',
         source: 'Robert C. Martin',
-        citation: 'Learn to Program with me',
+        // citation: 'Learn to Program with me',
         year: 1989
     },
     {
-        quote: 'Testing leads to failure, and failure leads to understanding.',
-        source: 'Burt Rutan',
-        citation:  `He's smart`,
-        year: 1986
-    },
-    {
-        quote: 'blah blah quote.',
-        source: 'source but no year'
+        quote: 'Anything worth dying for is certainly worth living for.',
+        source: 'Joseph Heller',
+        citation:  `Catch-22`
+        // year: 1986
     }
 ];
 
@@ -65,8 +57,8 @@ console.log(getRandomQuote());
 function printQuote() {
     const randomQuote = getRandomQuote();
     let stringElements = `
-        <p className="quote">${randomQuote.quote}</p>
-        <p className="source">${randomQuote.source}
+        <p class="quote">${randomQuote.quote}</p>
+        <p class="source">${randomQuote.source}
         `
     if (randomQuote.citation) {
         stringElements += `<span class="citation">${randomQuote.citation}</span>`;
