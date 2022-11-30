@@ -42,6 +42,10 @@ const quotes = [
         source: 'Burt Rutan',
         citation:  `He's smart`,
         year: 1986
+    },
+    {
+        quote: 'blah blah quote.',
+        source: 'source but no year'
     }
 ];
 
@@ -49,32 +53,36 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 function getRandomQuote(){
-    const randomNumber = Math.floor(Math.random() * quotes.length + 1);
-    console.log(randomNumber);
-    return randomNumber;
+    const randomNumber = Math.floor(Math.random() * quotes.length);
+    // console.log(randomNumber);
+    return quotes[randomNumber];
 }
 
-
+console.log(getRandomQuote());
 /***
  * `printQuote` function
 ***/
 function printQuote() {
     const randomQuote = getRandomQuote();
-    const stringElements = `
-        <p className="quote"> A random quote </p>
-        <p className="source"> quote source </p>
+    let stringElements = `
+        <p className="quote">${randomQuote.quote}</p>
+        <p className="source">${randomQuote.source}
         `
-    if (quotes[getRandomQuote()].citation) {
-        console.log(`Hello inside the citation`);
+    if (randomQuote.citation) {
+        stringElements += `<span class="citation">${randomQuote.citation}</span>`;
     } else {
         console.log('no citation');
     }
 
-    if (quotes[getRandomQuote()].year) {
-        console.log(`Hello inside the second citation`);
+    if (randomQuote.year) {
+        stringElements += `<span class="citation">${randomQuote.year}</span>`;
     } else {
         console.log('no citation 2');
     }
+    stringElements += `</p>`;
+
+    document.getElementById('quote-box').innerHTML = stringElements;
+    console.log(stringElements);
 }
 
 printQuote();
@@ -83,4 +91,4 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
