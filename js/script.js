@@ -30,29 +30,28 @@ const quotes = [
     {
         quote: 'Truth can only be found in one place: the code',
         source: 'Robert C. Martin',
-        // citation: 'Learn to Program with me',
         year: 1989
     },
     {
         quote: 'Anything worth dying for is certainly worth living for.',
         source: 'Joseph Heller',
         citation:  `Catch-22`
-        // year: 1986
     }
 ];
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function randomNumber variable collects a random number with the length of the quotes objects. I'm then returning one of the quote objects with the index of the random number
 ***/
 function getRandomQuote(){
     const randomNumber = Math.floor(Math.random() * quotes.length);
-    // console.log(randomNumber);
     return quotes[randomNumber];
 }
 
-console.log(getRandomQuote());
+getRandomQuote();
+
 /***
- * `printQuote` function
+ * `printQuote` function. This function builds the string. Thre is always a quote and a source so they are together. If there is a citation or year they are also added. I am logging situations where there are no year or citation.
+ * at the end Im taking my variable stringElements and injecting into the HTML of the 'quote-box'.
 ***/
 function printQuote() {
     const randomQuote = getRandomQuote();
@@ -67,14 +66,13 @@ function printQuote() {
     }
 
     if (randomQuote.year) {
-        stringElements += `<span class="citation">${randomQuote.year}</span>`;
+        stringElements += `<span class="year">${randomQuote.year}</span>`;
     } else {
-        console.log('no citation 2');
+        console.log('no year');
     }
     stringElements += `</p>`;
 
     document.getElementById('quote-box').innerHTML = stringElements;
-    console.log(stringElements);
 }
 
 printQuote();
