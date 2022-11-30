@@ -3,12 +3,12 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance:
+// For assistance: 
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/***
- * `quotes` array
+/*** 
+ * `quotes` array 
 ***/
 const quotes = [
     {
@@ -19,7 +19,7 @@ const quotes = [
     },
     {
         quote: 'The only way to learn a new programming language is by writing programs in it.',
-        source: 'Dennis Richie',
+        source: 'Dennis Ritchie',
         citation: 'C Programming Language',
         year: 1988
 
@@ -42,95 +42,53 @@ const quotes = [
         source: 'Burt Rutan',
         citation:  `He's smart`,
         year: 1986
+    },
+    {
+        quote: 'blah blah quote.',
+        source: 'source but no year'
     }
 ];
 
-// console.log(`This log is on line #48 (${quotes})`);
-// console.log(quotes);
 /***
  * `getRandomQuote` function
 ***/
-let getRandomQuote = function(){
+function getRandomQuote(){
     const randomNumber = Math.floor(Math.random() * quotes.length);
     // console.log(randomNumber);
-    return quotes[randomNumber].quote;
+    return quotes[randomNumber];
 }
 
-// console.log(quotes[0].citation); //Always returns Learn to Program
-
-// console.log(getRandomQuote()); // Always returns a number
-
 console.log(getRandomQuote());
-// console.log(getRandomQuote()); // Always returns a number
-
-const randomNumber = getRandomQuote();
-
-
-// console.log(getRandomQuote());
 /***
  * `printQuote` function
 ***/
-<<<<<<< Updated upstream
-
-console.log(getRandomQuote());
-=======
-
-
-
-let printQuote = function(){
-    const randomQuote = getRandomQuote;
+function printQuote() {
+    const randomQuote = getRandomQuote();
     let stringElements = `
-        <p className="quote">  </p>
-        <p className="source"> quote source
+        <p className="quote">${randomQuote.quote}</p>
+        <p className="source">${randomQuote.source}
         `
-    // console.log(getRandomQuote()); // Always returns a number
-    // console.log(quotes[getRandomQuote()].citation); // DOESN'T Always returns a citation looping through. Sometimes it works, others it doesn't.
-    if (quotes[getRandomQuote()].citation) {
-        // console.log(`${stringElements}`);
-
-            stringElements+= `<span class="citation"> quote citation </span>`
-    // console.log(stringElements);
+    if (randomQuote.citation) {
+        stringElements += `<span class="citation">${randomQuote.citation}</span>`;
     } else {
-        // console.log('no citation');
+        console.log('no citation');
     }
 
-    if (quotes[getRandomQuote()].year) {
-        stringElements+= `<span class="year"> quote year </span></p>`
-        console.log(stringElements);
+    if (randomQuote.year) {
+        stringElements += `<span class="citation">${randomQuote.year}</span>`;
+    } else {
+        console.log('no citation 2');
     }
+    stringElements += `</p>`;
+
     document.getElementById('quote-box').innerHTML = stringElements;
-    return stringElements;
+    console.log(stringElements);
 }
-const quote = printQuote();
-console.log(printQuote());
 
-printQuote()
-
-// document.getElementById('quote-box').innerHTML = printQuote();
-
->>>>>>> Stashed changes
-
+printQuote();
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
