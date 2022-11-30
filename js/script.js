@@ -15,7 +15,8 @@ const quotes = [
         quote: 'I am not afraid of storms, for I am learning how to sail my ship.',
         source: 'Louisa May Alcott',
         citation: 'Little Women',
-        year: 1869
+        year: 1869,
+        tag: `"storm"`
     },
     {
         quote: 'It\'s the possibility of having a dream come true that makes life interesting.',
@@ -70,6 +71,14 @@ function printQuote() {
     } else {
         console.log('no year');
     }
+
+    if (randomQuote.tag) {
+        stringElements += `<span class="tag">${randomQuote.tag}</span>`;
+    } else {
+        console.log('no tag');
+    }
+
+
     stringElements += `</p>`;
 
     document.getElementById('quote-box').innerHTML = stringElements;
