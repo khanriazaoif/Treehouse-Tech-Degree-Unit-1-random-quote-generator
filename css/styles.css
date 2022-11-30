@@ -115,6 +115,14 @@ h1 {
   font-style: normal;
 }
 
+.tag {
+  font-style: oblique;
+}
+
+.tag:before {
+  content: ", ";
+  font-style: normal;
+
 @media (min-width: 768px) {
   body {
     padding: 25px;

@@ -16,7 +16,7 @@ const quotes = [
         source: 'Louisa May Alcott',
         citation: 'Little Women',
         year: 1869,
-        tag: 'Storm'
+        tag: `"storm"`
     },
     {
         quote: 'It\'s the possibility of having a dream come true that makes life interesting.',
@@ -75,8 +75,9 @@ function printQuote() {
     if (randomQuote.tag) {
         stringElements += `<span class="tag">${randomQuote.tag}</span>`;
     } else {
-        console.log('no citation');
+        console.log('no tag');
     }
+
 
     stringElements += `</p>`;
 
@@ -90,3 +91,23 @@ printQuote();
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+// source citation https://arjunphp.com/auto-refresh-current-page-regular-intervals-using-js/
+setTimeout(function(){
+    location.reload();
+},3000); // 3000 milliseconds means 3 seconds.
+
+
+// source citation https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+function random_bg_color() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    // let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    let bgColor = `rgb(${x},${y},${z})`
+    console.log(bgColor);
+
+    document.body.style.background = bgColor;
+}
+
+random_bg_color();
