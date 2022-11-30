@@ -3,12 +3,12 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
+// For assistance:
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
+/***
+ * `quotes` array
 ***/
 const quotes = [
     {
@@ -19,7 +19,7 @@ const quotes = [
     },
     {
         quote: 'The only way to learn a new programming language is by writing programs in it.',
-        source: 'Dennis Ritchie',
+        source: 'Dennis Richie',
         citation: 'C Programming Language',
         year: 1988
 
@@ -50,18 +50,65 @@ const quotes = [
 /***
  * `getRandomQuote` function
 ***/
-function getRandomQuote(){
-    const randomNumber = Math.floor(Math.random() * quotes.length + 1);
-    console.log(randomNumber);
-    return randomNumber;
+let getRandomQuote = function(){
+    const randomNumber = Math.floor(Math.random() * quotes.length);
+    // console.log(randomNumber);
+    return quotes[randomNumber].quote;
 }
 
+// console.log(quotes[0].citation); //Always returns Learn to Program
 
+// console.log(getRandomQuote()); // Always returns a number
+
+console.log(getRandomQuote());
+// console.log(getRandomQuote()); // Always returns a number
+
+const randomNumber = getRandomQuote();
+
+
+// console.log(getRandomQuote());
 /***
  * `printQuote` function
 ***/
+<<<<<<< Updated upstream
 
 console.log(getRandomQuote());
+=======
+
+
+
+let printQuote = function(){
+    const randomQuote = getRandomQuote;
+    let stringElements = `
+        <p className="quote">  </p>
+        <p className="source"> quote source
+        `
+    // console.log(getRandomQuote()); // Always returns a number
+    // console.log(quotes[getRandomQuote()].citation); // DOESN'T Always returns a citation looping through. Sometimes it works, others it doesn't.
+    if (quotes[getRandomQuote()].citation) {
+        // console.log(`${stringElements}`);
+
+            stringElements+= `<span class="citation"> quote citation </span>`
+    // console.log(stringElements);
+    } else {
+        // console.log('no citation');
+    }
+
+    if (quotes[getRandomQuote()].year) {
+        stringElements+= `<span class="year"> quote year </span></p>`
+        console.log(stringElements);
+    }
+    document.getElementById('quote-box').innerHTML = stringElements;
+    return stringElements;
+}
+const quote = printQuote();
+console.log(printQuote());
+
+printQuote()
+
+// document.getElementById('quote-box').innerHTML = printQuote();
+
+>>>>>>> Stashed changes
 
 /***
  * click event listener for the print quote button
@@ -69,3 +116,21 @@ console.log(getRandomQuote());
 ***/
 
 // document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
